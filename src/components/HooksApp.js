@@ -12,7 +12,8 @@ const App = () => {
     useEffect(() => {
         function tick() {
             setDate(new Date().toLocaleString('EN-US', {timeZone}));
-        }; 
+        };
+        tick();
         console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
         const timerId = setInterval(() => tick(), 1000);
         return () => clearInterval(timerId);
