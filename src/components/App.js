@@ -9,16 +9,7 @@ class App extends Component {
 			date: new Date(),
 			errorMessage: ""
 		}
-		// Get current position data and set state values
-		window.navigator.geolocation.getCurrentPosition(
-			position => {
-				this.setState({
-					latitude: position.coords.latitude,
-					date: new Date()
-				})
-			},
-			error => console.log("got an error retrieving location",error)
-		)
+	
 	}
 
 	render() {
@@ -33,9 +24,21 @@ class App extends Component {
 	componentDidMount() {
 		// Reset date every second
 		this.timerId = setInterval(() => this.tick(), 1000)
+			// Get current position data and set state values
+		window.navigator.geolocation.getCurrentPosition(
+				position => {
+					this.setState({
+						latitude: position.coords.latitude,
+						date: new Date()
+					})
+				},
+				error => console.log("got an error retrieving location",error)
+			)
+		
 	}
 	componentWillUnmount() {
 		// Clear the interval set in componentDidMount
+
 		clearInterval(this.timerId)
 	}
 
