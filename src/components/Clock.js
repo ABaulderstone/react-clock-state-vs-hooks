@@ -8,9 +8,7 @@ function getIcon(season) {
 
 const Clock = props => {
 	const { date, season } = props
-	const seconds = date.getSeconds()
-	const minutes = date.getMinutes()
-	const hours = date.getHours()
+	const [hours, minutes, seconds] = date.split(" ")[1].split(":");
 	const icon = getIcon(season)
 
 	return (

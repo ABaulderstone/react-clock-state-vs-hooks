@@ -1,5 +1,5 @@
-function getSeason(latitude, date) {
-    const month = date.getMonth() + 1;
+function getSeason(latitude, dateString) {
+    const month = parseInt(dateString.split("/")[0]);
     const hemisphere = latitude <=0 ? "south" : "north"
     const seasons = [
     {south: "summer", north: "winter",  months: [1,2,12]},
